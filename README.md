@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=pYTraS5WR3s (5 min video to explain FF 3-Factor 
 <p>This is a script that collects stock data and does the calculations to get the risk factors used for a three-factor regression. These factors are market risk, the 'High minus Low' (HML) and 'Small minus Big' (SMB) factors. HML refers to the difference in returns between high market cap and low market cap stocks. SMB refers to the difference in returns between high book-to-market ratio stocks, and low book-to-market stocks</p>
 <p><b>Disclaimer:</b> This script only works for stocks on the New Zealand stock exchange. I have implemented the financial concepts to the best of my knowledge (Im no financial expert), but there may be some imperfections im unaware of. If someone actually uses this, invest at your own risk. Note that the CRON job would need to be scheduled some time after the market closes, and before it opens, and not over the weekend when the exchange is closed.</p>
 <p>The idea is that this script can be run daily inorder to calculate these values, and then can be used in a simple linear regression to explain the returns of an equity or portfolio. This does NOT help PREDICT returns, rather retro-actively EXPLAINS returns statistically, in regard to these three factors. This is particuarly useful for helping choose a manged fund for something like Kiwisaver.</p> 
-<p>I personally run this as a CRON job</p>
+<p>This could be run via CRON tab or Task Scheduler</p>
 <p>The final row produced has: Date, Excess Market Return(MKT_RF), SMB, HML, Risk-Free-Rate(RFR) and then a JSON object with all the daily returns of equities as percentages. An example row is found in the 'Images' folder.</p>
 
 <h3>Code Overview</h3>
