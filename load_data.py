@@ -3,10 +3,21 @@ import sqlite3
 
 
 def load_data(new_row):
-
     # Create DB connection and cursor
     conn = sqlite3.connect('factor_db.sqlite')
     cursor = conn.cursor()
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS factors(
+	    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	    date_stamp TEXT NOT NULL,
+	    mkt_rf REAL NOT NULL,
+	    smb REAL NOT NULL,
+	    hml REAL NOT NULL,
+	    rfr REAL NOT NULL,
+	    nz_returns TEXT NOT NULL
+        );
+    ''')
 
     # Selecting the first row from the single row DF passed in.
     row = new_row.iloc[0, :].values
